@@ -20,7 +20,7 @@ soup = BeautifulSoup(ret.text, 'html.parser')
 
 posts = soup.find_all(class_='tm-articles-list__item')
 for post in posts:
-    time = post.find(class_='tm-article-snippet__datetime-published').next.next
+    time = post.find(class_='tm-article-snippet__datetime-published').next.attrs['title']
     Title = post.find(class_='tm-article-snippet__title-link').next.text
     text = post.find(class_="article-formatted-body article-formatted-body article-formatted-body_version-2").text
     href = post.find(class_="tm-article-snippet__readmore").attrs['href']
